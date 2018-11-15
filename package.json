@@ -1,0 +1,28 @@
+{
+  "name": "image-steam-blobby-client",
+  "version": "1.0.0",
+  "description": "Blobby client for Image Steam: https://github.com/asilvas/node-image-steam",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib",
+    "prepublish": "npm run build",
+    "watch": "babel --watch ./src --out-dir ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asilvas/image-steam-blobby-client.git"
+  },
+  "author": "Aaron Silvas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asilvas/image-steam-blobby-client/issues"
+  },
+  "homepage": "https://github.com/asilvas/image-steam-blobby-client#readme",
+  "dependencies": {
+    "blobby-client": "^1.0.0"
+  },
+  "peerDependencies": {
+    "image-steam": ">=0.37.0"
+  },
+  "devDependencies": {}
+}
