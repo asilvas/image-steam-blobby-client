@@ -48,7 +48,7 @@ module.exports = class StorageBlobbyClient extends StorageBase
   }
 
   fetch(opts, originalPath, stepsHash, cb) {
-    const imagePath = stepsHash ? `isteam/${originalPath}/${stepsHash}` : originalPath;
+    const imagePath = stepsHash ? `${originalPath}/${stepsHash}` : originalPath;
     this.getClient(opts).then(client => {
       const storage = client.getStorage(opts.options.storageId);
       client.getFile(storage, imagePath, { acl: 'public' }).then(([blobbyMeta, data]) => {
@@ -63,7 +63,7 @@ module.exports = class StorageBlobbyClient extends StorageBase
   }
 
   store(opts, originalPath, stepsHash, image, cb) {
-    const imagePath = `isteam/${originalPath}/${stepsHash}`;
+    const imagePath = `${originalPath}/${stepsHash}`;
     this.getClient(opts).then(client => {
       const storage = client.getStorage(opts.options.storageId);
 
@@ -79,7 +79,7 @@ module.exports = class StorageBlobbyClient extends StorageBase
 
   /* native touch is currently disabled due to loss of metadata during in-place replacement (CEPH only?)
   touch(opts, originalPath, stepsHash, image, cb) {
-    const imagePath = `isteam/${originalPath}/${stepsHash}`;
+    const imagePath = `${originalPath}/${stepsHash}`;
     this.getClient(opts).then(client => {
       const storage = client.getStorage(opts.options.storageId);
       const headers = {
@@ -97,7 +97,7 @@ module.exports = class StorageBlobbyClient extends StorageBase
   */
 
  deleteCache(opts, originalPath, cb) {
-    const imagePath = `isteam/${originalPath}`;
+    const imagePath = `${originalPath}`;
     this.getClient(opts).then(client => {
       const storage = client.getStorage(opts.options.storageId);
       client.deleteFiles(storage, imagePath, { }).then(cb).catch(cb);
